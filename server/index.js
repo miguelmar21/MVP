@@ -15,7 +15,7 @@ var options = {
   url: 'https://exercisedb.p.rapidapi.com/exercises',
   headers: {
     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
-    'x-rapidapi-key': 'a6363e0359msh297369e10617062p171bebjsnceb00df166ed'
+    'x-rapidapi-key': API-KEY
   }
 };
 
