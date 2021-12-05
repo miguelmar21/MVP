@@ -1,4 +1,114 @@
-h1 {
-    color: white;
-    background-color: black;
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.css-1oqqzyl-MuiContainer-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  position: relative;
+}
+
+/* NAVIGATION */
+.login-logo {
+  display: flex;
+  font-size: 0.8em;
+}
+
+.login {
+  flex: 1;
+  padding-left: 5px;
+}
+
+.login-logo::after {
+  flex: 1;
+  content: '';
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: .8em;
+}
+
+.nav-bar-container {
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+
+/* EXERCISES */
+.exercises-container {
+  background-color: gray;
+  width: 100%;
+}
+
+.exercise-container {
+  background-color: ghostwhite;
+  width: 100%;
+  border-bottom: black solid 1px;
+  display: flex;
+}
+
+.left-exercise-container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: .8em;
+}
+
+.left-exercise-container p {
+  margin-block: 0.3em;
+}
+
+.exercise-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-exercise-container {
+  width: 40%;
+}
+
+.right-exercise-container img {
+  width: 100%;
+  height: auto;
+}
+
+.page-handler {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* BODY PART FORM */
+.body-part-form {
+  text-align: center;
+  color: white;
+  position: absolute;
+  display: none;
+  background-color: midnightBlue;
+  z-index: 2;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.body-part-form .body-part-section{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   }
+
+.waist{ 
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.body-part-form .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  color: white;
+}
