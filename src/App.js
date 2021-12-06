@@ -8,8 +8,9 @@ import axios from 'axios';
 import SearchByName from "./SearchByName";
 
 function App() {
-  const [allExercises, setAllExercises] = useState(sampleData);
-  const [exercises, setExercises] = useState(sampleData);
+  const [allExercises, setAllExercises] = useState([]);
+  const [exercises, setExercises] = useState([]);
+  const [favoritesId, setFavoritesId] = useState([])
   const [favorites, setFavorites] = useState([]);
   const [exercisesInPage, setExercisesInPage] = useState([0, 5]);
   const [form, setForm] = useState("none");
@@ -17,27 +18,31 @@ function App() {
   let exercisePage = exercises.slice(exercisesInPage[0], exercisesInPage[1]);
   let favoritePage = favorites.slice(exercisesInPage[0], exercisesInPage[1]);
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:3000/exercises')
-  //     .then((response) => {
-  //       setAllExercises(response.data);
-  //       setExercises(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     })
-  // }, [])
-
   useEffect(() => {
-    axios.get('http://localhost:3000/exercises/favorites')
+    axios.get('http://localhost:3000/exercises')
       .then((response) => {
-        filterByFavorites(response.data);
+        setAllExercises(response.data);
+        setExercises(response.data);
       })
       .catch((err) => {
         console.error(err);
       })
   }, [])
 
+  useEffect(() => {
+    axios.get('http://localhost:3000/exercises/favorites')
+    .then((response) => {
+      setFavoritesId(response.data);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  }, [allExercises])
+
+
+  useEffect(() => {
+    filterByFavorites(favoritesId)
+  }, [favoritesId])
 
   function filterByFavorites(exerciseIds) {
     var favoriteArray = []
@@ -46,11 +51,9 @@ function App() {
     }
 
     function filterById(exercise) {
-      console.log(favoriteArray)
       if (favoriteArray.includes(parseInt(exercise.id))) {
         return true;
       } else {
-        console.log('false')
         return false;
       }
     }
@@ -111,6 +114,8 @@ function App() {
         exercises={form === "favorites" ? favoritePage : exercisePage}
         setExercisesInPage={setExercisesInPage}
         exercisesInPage={exercisesInPage}
+        favoriteId={favoritesId}
+        setFavoritesId={setFavoritesId}
       />
       <SearchBodyPart 
       form={form} 

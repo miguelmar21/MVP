@@ -5,6 +5,8 @@ export default function Exercises({
   exercises,
   exercisesInPage,
   setExercisesInPage,
+  favoritesId,
+  setFavoritesIds
 }) {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,7 +22,6 @@ export default function Exercises({
     })
   }
 
-  console.log(exercises);
   function setNewPage(e) {
     var prevOrNext = e.target.value;
     if (prevOrNext === "prev" && currentPage !== 1) {
@@ -41,7 +42,7 @@ export default function Exercises({
             className="exercise-container">
             <div className="left-exercise-container">
               <div className="favorite">
-                <button value={exercise.id} onClick={addNewFavorite}>Favorite</button>
+                <button value={exercise.id} onClick={(e) => {addNewFavorite(e); setFavoritesIds([...favoritesId])}}>Favorite</button>
               </div>
               <div className="exercise-info">
                 <p>{exercise.name}</p>
