@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .css-1oqqzyl-MuiContainer-root {
@@ -13,6 +13,7 @@ body {
 .login-logo {
   display: flex;
   font-size: 0.8em;
+  padding-bottom: 25px;
 }
 
 .login {
@@ -22,14 +23,14 @@ body {
 
 .login-logo::after {
   flex: 1;
-  content: '';
+  content: "";
 }
 
 .navigation {
   display: flex;
   justify-content: space-around;
   text-align: center;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .nav-bar-container {
@@ -56,14 +57,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .left-exercise-container p {
   margin-block: 0.3em;
 }
 
-.exercise-info{
+.exercise-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +89,7 @@ body {
   text-align: center;
   color: white;
   position: absolute;
-  display: none;
+  display: block;
   background-color: midnightBlue;
   z-index: 2;
   width: 80%;
@@ -97,18 +98,43 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.body-part-form .body-part-section{
+.body-part-form .body-part-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  }
+}
 
-.waist{ 
+.waist {
   grid-area: 4 / 2 / 5 / 3;
 }
 
 .body-part-form .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
   color: white;
+}
+
+/* NAME FORM */
+
+.name-form{
+  text-align: center;
+  color: white;
+  position: absolute;
+  display: block;
+  background-color: midnightBlue;
+  z-index: 2;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ACTIVATION */
+
+.deactivated {
+  display: none;
+}
+
+.activated {
+  display: block;
 }

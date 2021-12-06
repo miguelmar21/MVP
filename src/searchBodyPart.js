@@ -17,7 +17,7 @@ let bodyParts = [
   "waist",
 ];
 
-let muscleGroups = {
+let muscleGroupsData = {
   back: ["upper back", "spine", "traps", "lats"],
   cardio: ["cardiovascular system"],
   chest: ["pectorals", "serratus anterior"],
@@ -30,21 +30,50 @@ let muscleGroups = {
   waist: ["abs"],
 };
 
-export default function searchBodyPart() {
+export default function searchBodyPart({
+  form,
+  setForm,
+  filterExercisesWithTargets,
+  filterExercisesByBodyPart
+}) {
   const [bodyPart, setBodyPart] = useState("");
+  const [muscleGroups, setMuscleGroups] = useState([]);
 
   function selectBodyPart(e) {
     setBodyPart(e.target.value);
+    if (e.target.value !== bodyPart) {
+      setMuscleGroups([]);
+    }
+  }
+
+  function exit(e) {
+    setForm("none");
+  }
+
+  function addOrRemoveMuscleGroup(e) {
+    let muscleGroup = e.target.value;
+    if (e.target.checked) {
+      setMuscleGroups([...muscleGroups, muscleGroup]);
+    } else {
+      let newArr = muscleGroups.filter((item) => item !== muscleGroup);
+      setMuscleGroups(newArr);
+    }
   }
 
   return (
-    <div className="body-part-form">
+    <div
+      className={
+        "body-part-form " +
+        (form === "body part form" ? "activated" : "deactivated")
+      }
+    >
+      <button onClick={exit}>X</button>
       <p>Select a body part</p>
       <form className="body-part-section">
         {bodyParts.map((bodyPart) => {
           return (
             <Button
-              key={bodyPart}
+              // key={bodyPart}
               className={bodyPart}
               value={bodyPart}
               onClick={selectBodyPart}
@@ -57,26 +86,36 @@ export default function searchBodyPart() {
       </form>
       <form>
         <FormGroup>
-          {bodyPart && (
-            <p>Select muscle groups</p>
-          )}
+          {bodyPart && <p>Select muscle groups</p>}
           {bodyPart &&
-            muscleGroups[bodyPart].map((muscleGroup) => {
+            muscleGroupsData[bodyPart].map((muscleGroup) => {
               return (
                 <FormControlLabel
-                  control={
-                    <Checkbox />
-                  }
+                  value={muscleGroup}
+                  control={<Checkbox onChange={addOrRemoveMuscleGroup} />}
                   label={muscleGroup}
                 />
               );
             })}
         </FormGroup>
-        {bodyPart && 
-        <React.Fragment>
-          <Button>Search</Button>
-          <Button>Search All</Button>
-        </React.Fragment>}
+        {bodyPart && (
+          <React.Fragment>
+            <Button
+              onClick={() => {
+                exit();
+                filterExercisesWithTargets(bodyPart, muscleGroups);
+              }}
+            >
+              Search
+            </Button>
+            <Button
+             onClick={() => {
+              exit();
+              filterExercisesByBodyPart(bodyPart);
+            }}
+            >Search All</Button>
+          </React.Fragment>
+        )}
       </form>
     </div>
   );
