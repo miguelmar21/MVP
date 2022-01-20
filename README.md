@@ -28,5 +28,35 @@ You can also search exercises by body parts such as back or upper legs. Once you
 <img src="https://user-images.githubusercontent.com/76494184/150382814-a94b36fd-c904-4387-ae56-2c446954aff0.gif" width="350"/><br>
 If you like a particular exercise, you can favorite it by clicking the "Favorite" button on the top right of the exercise. These favorites exercises can be seen by clicking on "My favorites" on the navigation menu. You can unfavorite an exercise by clicking on the "favorites" button inside the "My favorites" tab. 
 
+___
+  
+## INSTALLATION
+  
+**STEP ONE:** Clone down the repo from github. <br>
+```HTTPS:```
+  > git clone https://github.com/miguelmar21/MVP.git
 
+ ```SSH:```
+  > git clone git@github.com:miguelmar21/MVP.git
+
+<br>
+
+**STEP TWO:** Install dependencies using node package manager.
+  > npm install
+
+<br>
+
+**STEP THREE:** Build the project using webpack.
+  > npm run build
+
+<br>
+
+**STEP FOUR:** Start the express server to receive requests from the front end.
+  > npm start
+
+<br>
+
+**STEP FIVE:** Open a web browser and navigate to http://localhost:3000
+
+<br>
 
