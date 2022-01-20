@@ -1,10 +1,10 @@
 # NewbieGainz <br><sup> By Miguel Regalado<sup>
-This project, also known as MVP (Minimal viable product) was done in roughly 2 days to showcase what I can deliver in such a short time constraint. I am proud of what I accomplished in just two days and learned quite a lot about time and project management when given a time limit.
+This project, also known as MVP (Minimal viable product) was done in roughly 2 days to showcase what I can deliver in such a short time constraint. I am proud of what I accomplished in such a short period and learned quite a lot about time and project management when given a time limit.
   
 ## INTRODUCTION
 Have you ever wanted to go to the gym and change your life around but you were always overwhelmed by the world of weightlifting? Or perhaps you don't know how to do particular movements for certain muscle groups? Maybe you don't even know the names of the muscles in your body?
   
-Well this is where NewbiewGainz comes into play. NewbieGainz is a mobile app designed for beginners who wish to learn new weightlifting exercises without having to know much about the gym to begin with. You can search these exercises by name, by muscle groups, or you can just look through all of the movements within this powerful workout API!
+Well this is where NewbieGainz comes into play. NewbieGainz is a mobile app designed for beginners who wish to learn new weightlifting exercises without having to know much about the gym to begin with. You can search these exercises by name, by muscle groups, or you can just look through all of the movements within this powerful workout API!
   
 API used: [ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/) by Justin Mozley
   
